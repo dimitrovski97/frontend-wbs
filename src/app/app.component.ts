@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend-wbs';
+  listaLaptopi = ['Lenovo', 'Dell', 'Asus', 'Alienware'];
 }

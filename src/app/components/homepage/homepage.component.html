@@ -1,0 +1,22 @@
+<div class="logo-holder">
+  <img style='object-fit: contain' src="../../../assets/movieLogo.png">
+  <div class="search-holder">
+  <input #searchMovie placeholder="Enter the name of the movie you want to rent">
+  <button (click)="searchMovies(searchMovie.value)">Search</button>
+  </div>
+  <ul *ngIf="movieShortList.length">
+    <li *ngFor="let item of movieShortList" (click)="redirectToMovieView(item.movieId)">
+      <h5>{{item.name}}</h5>
+      <p>{{item.description}}</p>
+    </li>
+  </ul>
+  <div class="search-holder">
+    <input #searchActor placeholder="Enter the name of the actor">
+    <button (click)="searchByActor(searchActor.value)">Search by Actor</button>
+  </div>
+  <ul *ngIf="actorShortList.length">
+    <li *ngFor="let item of actorShortList" (click)="redirectToActorView(item)">
+      <h5>{{item.name}}</h5>
+    </li>
+  </ul>
+</div>

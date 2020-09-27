@@ -12,6 +12,13 @@ import {ActorModel} from '../../Models/ActorModel';
 })
 export class HomepageComponent implements OnInit {
   movieShortList: MovieShortModel[] = [];
+  genreList = ['Action', 'Drama', 'Crime', 'Adventure'];
+  genreKeys = {
+    Action: 'Q188473',
+    Drama: 'Q130232',
+    Crime: 'Q959790',
+    Adventure: 'Q319221'
+  };
   private actorShortList: ActorModel[] = [];
   constructor(private movieService: MovieService,
               private router: Router
@@ -32,12 +39,15 @@ export class HomepageComponent implements OnInit {
 
   searchByActor(value: string) {
     this.movieService.getActorInfoByName(value).subscribe((items: ActorModel[]) => {
-      console.log(items);
       this.actorShortList = items;
     });
   }
 
   redirectToActorView(item: any) {
     console.log(item);
+  }
+
+  searchByGenre(value: string) {
+    this.router.navigate(['/', 'Genre', this.genreKeys[value]]);
   }
 }

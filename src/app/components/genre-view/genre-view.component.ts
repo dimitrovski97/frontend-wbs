@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MovieService} from '../../services/movie.service';
 import {MovieModel} from '../../Models/MovieModel';
 
@@ -13,7 +13,8 @@ export class GenreViewComponent implements OnInit {
   private genreMovies: MovieModel[] = [];
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService)  { }
+              private movieService: MovieService,
+              private router: Router)  { }
 
   ngOnInit() {
     this.genreID = this.route.snapshot.url[1].path;
@@ -23,4 +24,7 @@ export class GenreViewComponent implements OnInit {
     });
   }
 
+  redirectToMovieView(id: string) {
+    this.router.navigate(['/', 'Movie', id]);
+  }
 }

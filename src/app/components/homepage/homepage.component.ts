@@ -12,12 +12,17 @@ import {ActorModel} from '../../Models/ActorModel';
 })
 export class HomepageComponent implements OnInit {
   movieShortList: MovieShortModel[] = [];
-  genreList = ['Action', 'Drama', 'Crime', 'Adventure'];
+  genreList = ['Action', 'Drama', 'Crime', 'Adventure', 'Romance', 'Comedy', 'Thriller', 'Fantasy', 'Horror'];
   genreKeys = {
     Action: 'Q188473',
     Drama: 'Q130232',
     Crime: 'Q959790',
-    Adventure: 'Q319221'
+    Adventure: 'Q319221',
+    Romance: 'Q1054574',
+    Comedy: 'Q157443',
+    Thriller: 'Q2484376',
+    Fantasy: 'Q157394',
+    Horror: 'Q200092'
   };
   private actorShortList: ActorModel[] = [];
   constructor(private movieService: MovieService,

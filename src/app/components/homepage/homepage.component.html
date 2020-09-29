@@ -1,13 +1,13 @@
 <div class="logo-holder">
   <img style='object-fit: contain' src="../../../assets/movieLogo.png">
   <div class="search-holder">
-  <input #searchMovie placeholder="Enter the name of the movie you want to rent">
-  <button (click)="searchMovies(searchMovie.value)">Search</button>
+    <input #searchMovie placeholder="Enter the name of the movie you want to rent">
+    <button (click)="searchMovies(searchMovie.value)">Search</button>
   </div>
-  <ul *ngIf="movieShortList.length">
+  <ul *ngIf="movieShortList.length" class="ul-style">
     <li *ngFor="let item of movieShortList" (click)="redirectToMovieView(item.movieId)">
-      <h5>{{item.name}}</h5>
-      <p>{{item.description}}</p>
+      <h6 class="movieName">{{item.name}}</h6>
+      <p class="movieDesc">{{item.description}}</p>
     </li>
   </ul>
   <div class="search-holder">
@@ -20,14 +20,11 @@
     </li>
   </ul>
   <div class="search-holder">
-    <select #searchGenre>
+    <select #searchGenre class="select-css">
+      <option selected disabled>Select genre</option>
       <option *ngFor="let item of genreList">{{item}}</option>
     </select>
     <button (click)="searchByGenre(searchGenre.value)">Search by Genre</button>
   </div>
-  <ul *ngIf="actorShortList.length">
-    <li *ngFor="let item of actorShortList" (click)="redirectToActorView(item)">
-      <h5>{{item.name}}</h5>
-    </li>
-  </ul>
+
 </div>

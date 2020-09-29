@@ -1,4 +1,8 @@
 export class ActorModel {
+  actorId: string;
   name: string;
-  description: string;
+  desc: string;
+  birthDate: string;
+  birthPlace: string;
+  image: string;
 }

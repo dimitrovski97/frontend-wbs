@@ -13,6 +13,8 @@ export class MovieService {
   private movieFullUrl = 'http://localhost:8080/movie/';
   private actorUrl = 'http://localhost:8080/actor/';
   private genreUrl = 'http://localhost:8080/by-genre/';
+  private actorByMovieUrl = 'http://localhost:8080/cast/';
+
   constructor(private http: HttpClient) { }
   getMoviesWithDescription(name: string): Observable<MovieShortModel[]> {
     return this.http.get<MovieShortModel[]>(this.movieUrl.concat(capitalize(name)));
@@ -27,5 +29,9 @@ export class MovieService {
 
   getMoviesByGenre(genreID: string) {
     return this.http.get<MovieModel[]>(this.genreUrl.concat(genreID));
+  }
+
+  getActorsByMovieId(movieID: string) {
+    return this.http.get<ActorModel[]>(this.actorByMovieUrl.concat(movieID));
   }
 }

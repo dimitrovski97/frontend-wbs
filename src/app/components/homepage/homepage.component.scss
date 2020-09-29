@@ -1,13 +1,17 @@
-.logo-holder{
+.logo-holder {
   margin: auto;
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
   .search-holder{
     margin-top: 1rem;
     border-radius: 1rem;
     border: 5px solid lightgreen;
+  }
+  .search-holder input {
+    margin-left: 10px;
   }
   input{
     width: 70%;
@@ -22,6 +26,23 @@
     color: white;
     min-height: 2rem;
     border: none;
-
   }
+
+  .movieName{
+    font-size: 30px;
+    font-style: oblique;
+    color: green;
 }
+  .movieDesc {
+    font-size: 20px;
+    color: forestgreen;
+    margin-top: -50px;
+  }
+  .ul-style {
+    list-style: none;
+  }
+
+  .select-css {
+    border:none;
+    width: 72%;
+  }

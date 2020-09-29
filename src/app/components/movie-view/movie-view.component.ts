@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MovieModel} from '../../Models/MovieModel';
 import {MovieService} from '../../services/movie.service';
+import {ActorModel} from '../../Models/ActorModel';
 
 @Component({
   selector: 'app-movie-view',
@@ -11,6 +12,7 @@ import {MovieService} from '../../services/movie.service';
 export class MovieViewComponent implements OnInit {
   movie: MovieModel;
   movieID: string;
+  actorList: ActorModel [] = [];
   constructor(private route: ActivatedRoute,
               private movieService: MovieService) { }
 
@@ -19,6 +21,10 @@ export class MovieViewComponent implements OnInit {
     this.movieService.getFullMovieWithDescription(this.movieID).subscribe((items: MovieModel[]) => {
       this.movie = items[0];
       console.log(this.movie);
+    });
+    this.movieService.getActorsByMovieId(this.movieID).subscribe((items: ActorModel[]) => {
+      this.actorList = items;
+      console.log(items);
     });
   }
 

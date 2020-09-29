@@ -17,7 +17,7 @@
   </div>
   <ul *ngIf="actorShortList.length">
     <li *ngFor="let item of actorShortList" (click)="redirectToActorView(item.actorId)">
-      <h5>{{item.name}}</h5>
+      <h5 style="color:green;">{{item.name}}</h5>
     </li>
   </ul>
   <div class="search-holder">

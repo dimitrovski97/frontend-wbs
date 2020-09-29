@@ -40,9 +40,9 @@
           style="font-size: 60px; color:green;">{{movie.name}}</h5>
       <p class="p-font">{{movie.description}}</p>
       <p class="p-font">Genre: {{movie.movieGenre}}</p>
-      <p class="p-font">Directed by : {{movie.director}}</p>
+      <p class="p-font">Directed by: {{movie.director}}</p>
       <p class="p-font">Cast: </p>
-      <ul class="ul-style">
+      <ul class="ul-style" style="cursor: pointer;">
         <li *ngFor="let actor of actorList" (click)="redirectToActorView(actor.actorId)">
           {{actor.name}}
         </li>

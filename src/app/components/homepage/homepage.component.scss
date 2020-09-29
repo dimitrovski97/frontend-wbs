@@ -5,6 +5,16 @@
   flex-direction: column;
   justify-content: center;
 }
+li{
+  border: 1px solid green;
+  cursor: pointer;
+  padding-left: 1rem;
+  border-radius: 10px;
+  list-style-type: none;
+  h6{
+    margin-top: 0;
+  }
+}
   .search-holder{
     margin-top: 1rem;
     border-radius: 1rem;

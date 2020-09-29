@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { MovieViewComponent } from './components/movie-view/movie-view.component';
 import { GenreViewComponent } from './components/genre-view/genre-view.component';
+import { ActorViewComponent } from './components/actor-view/actor-view.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import { GenreViewComponent } from './components/genre-view/genre-view.component
     AppComponent,
     HomepageComponent,
     MovieViewComponent,
-    GenreViewComponent
+    GenreViewComponent,
+    ActorViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

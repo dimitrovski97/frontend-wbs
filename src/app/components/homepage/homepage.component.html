@@ -1,5 +1,6 @@
 <div class="logo-holder">
   <img style='object-fit: contain' src="../../../assets/movieLogo.png">
+  <ngx-spinner></ngx-spinner>
   <div class="search-holder">
     <input #searchMovie placeholder="Enter the name of the movie you want to rent">
     <button (click)="searchMovies(searchMovie.value)">Search</button>
@@ -15,7 +16,7 @@
     <button (click)="searchByActor(searchActor.value)">Search by Actor</button>
   </div>
   <ul *ngIf="actorShortList.length">
-    <li *ngFor="let item of actorShortList" (click)="redirectToActorView(item)">
+    <li *ngFor="let item of actorShortList" (click)="redirectToActorView(item.actorId)">
       <h5>{{item.name}}</h5>
     </li>
   </ul>

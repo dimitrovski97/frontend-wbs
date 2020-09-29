@@ -14,6 +14,7 @@ export class MovieService {
   private actorUrl = 'http://localhost:8080/actor/';
   private genreUrl = 'http://localhost:8080/by-genre/';
   private actorByMovieUrl = 'http://localhost:8080/cast/';
+  private actorInfoByID = 'http://localhost:8080/actorByID/';
 
   constructor(private http: HttpClient) { }
   getMoviesWithDescription(name: string): Observable<MovieShortModel[]> {
@@ -33,5 +34,8 @@ export class MovieService {
 
   getActorsByMovieId(movieID: string) {
     return this.http.get<ActorModel[]>(this.actorByMovieUrl.concat(movieID));
+  }
+  getActorInfoByID(actorID: string) {
+    return this.http.get<ActorModel[]>(this.actorInfoByID.concat(actorID));
   }
 }

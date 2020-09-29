@@ -43,7 +43,7 @@
       <p class="p-font">Directed by : {{movie.director}}</p>
       <p class="p-font">Cast: </p>
       <ul class="ul-style">
-        <li *ngFor="let actor of actorList">
+        <li *ngFor="let actor of actorList" (click)="redirectToActorView(actor.actorId)">
           {{actor.name}}
         </li>
       </ul>

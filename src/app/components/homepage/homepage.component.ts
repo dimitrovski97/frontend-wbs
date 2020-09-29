@@ -4,6 +4,9 @@ import {MovieShortModel} from '../../Models/MovieShortModel';
 import {MovieService} from '../../services/movie.service';
 import {Router} from '@angular/router';
 import {ActorModel} from '../../Models/ActorModel';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+
 
 @Component({
   selector: 'app-homepage',
@@ -26,15 +29,19 @@ export class HomepageComponent implements OnInit {
   };
   private actorShortList: ActorModel[] = [];
   constructor(private movieService: MovieService,
-              private router: Router
+              private router: Router,
+              private spinner: NgxSpinnerService
               ) { }
 
   ngOnInit() {
   }
 
   searchMovies(value: string) {
+    this.spinner.show();
     this.movieService.getMoviesWithDescription(value).subscribe((items) => {
       this.movieShortList = items;
+      this.spinner.hide();
+
     });
   }
 
@@ -43,13 +50,15 @@ export class HomepageComponent implements OnInit {
   }
 
   searchByActor(value: string) {
+    this.spinner.show();
     this.movieService.getActorInfoByName(value).subscribe((items: ActorModel[]) => {
       this.actorShortList = items;
+      this.spinner.hide();
     });
   }
 
-  redirectToActorView(item: any) {
-    console.log(item);
+  redirectToActorView(id: any) {
+    this.router.navigate(['/', 'Actor', id]);
   }
 
   searchByGenre(value: string) {
